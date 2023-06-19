@@ -2,11 +2,13 @@
 import React from "react";
 import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 
 const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Entypo name="chevron-left" size={20} color="black"/>
+      <Entypo name="chevron-left" size={20} color="black" onPress={() => navigation.navigate('Home')}/>
       <View
         style={
           clicked
