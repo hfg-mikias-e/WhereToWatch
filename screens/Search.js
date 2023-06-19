@@ -1,6 +1,6 @@
 // Search.js
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, SafeAreaView, ActivityIndicator } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 
 import List from "../components/List";
 import SearchBar from "../components/SearchBar";
@@ -29,7 +29,7 @@ export default function Search() {
 
   return (
     <SafeAreaView style={styles.root}>
-      <SearchBar
+      <SearchBar style={styles.searchBar}
         searchPhrase={searchPhrase}
         setSearchPhrase={setSearchPhrase}
         clicked={clicked}
@@ -45,5 +45,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: "100%",
     //backgroundColor: "rgb(20, 20, 20)"
-  },
+  }
 });
