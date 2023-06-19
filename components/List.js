@@ -10,13 +10,15 @@ import {
 } from "react-native";
 
 // definition of the Item, which will be rendered in the FlatList
-const Item = ({ name, details, mediatype }) => {
+const Item = ({ name, year, mediatype }) => {
   if(mediatype !== "person") {
     return (
       <View style={styles.item}>
         <Text style={styles.title}>{name}</Text>
-        {/*<Text style={styles.details}>{details}</Text>*/}
-        <Text style={styles.mediatype}>{mediatype}</Text>
+        <View style={styles.info}>
+          <Text style={styles.year}>{year}</Text>
+          <Text style={styles.mediatype}>{mediatype.toUpperCase()}</Text>
+        </View>
       </View>
     )
   }
@@ -25,12 +27,19 @@ const Item = ({ name, details, mediatype }) => {
 // the filter
 const List = ({ searchPhrase, setClicked, data }) => {
   const renderItem = ({ item }) => {
+    let date = ""
+    if(item.release_date !== undefined) {
+      date = item.release_date.substring(0, 4) // only release year of movie
+    } else if (item.first_air_date !== undefined) {
+      date = item.first_air_date.substring(0, 4) // only release year of tv show
+    }
+
     // filter of the name
     if (item.title !== undefined && item.title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
-      return <Item name={item.title} details={item.overview} mediatype={item.media_type}/>;
+      return <Item name={item.title} year={date} mediatype={item.media_type}/>;
     }
     else if (item.name !== undefined && item.name.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
-      return <Item name={item.name} details={item.overview} mediatype={item.media_type}/>;
+      return <Item name={item.name} year={date} mediatype={item.media_type}/>;
     }
   };
 
@@ -64,22 +73,27 @@ const styles = StyleSheet.create({
   item: {
     padding: 16,
     backgroundColor: "white",
-    gap: 6,
     borderRadius: 12,
     marginHorizontal: 16,
-    marginBottom: 12
+    marginBottom: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5,
-    fontStyle: "italic"
+    width: "80%"
   },
-  details: {
+  year: {
     fontSize: 16
   },
   mediatype: {
     fontSize: 12,
-    opacity: 0.4
+    fontWeight: "300"
+  },
+  info: {
+    gap: 2,
   }
 });

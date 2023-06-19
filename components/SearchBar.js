@@ -2,10 +2,13 @@
 import React from "react";
 import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 
 const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <Entypo name="chevron-left" size={20} color="black" onPress={() => navigation.navigate('Home')}/>
       <View
         style={
           clicked
@@ -59,14 +62,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     alignItems: "center",
     flexDirection: "row",
-    gap: 4,
+    gap: 8,
     width: "100%"
   },
   searchBar__unclicked: {
     padding: 12,
     flexDirection: "row",
-    width: "100%",
     gap: 12,
+    width: 100,
+    flexGrow: 2,
     backgroundColor: "#d9dbda",
     borderRadius: 15,
     alignItems: "center",
@@ -74,7 +78,8 @@ const styles = StyleSheet.create({
   searchBar__clicked: {
     padding: 12,
     flexDirection: "row",
-    width: "80%",
+    width: 100,
+    flexGrow: 2,
     backgroundColor: "#d9dbda",
     borderRadius: 15,
     alignItems: "center",
@@ -85,6 +90,6 @@ const styles = StyleSheet.create({
     display: "flex",
     fontSize: 20,
     flexGrow: 2,
-    maxWidth: "76%"
+    width: 10
   },
 });
