@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Search from './screens/Search';
 import HomeScreen from './screens/HomeScreen';
+import SearchResult from './screens/SearchResult';
 
 function SearchingPage() {
   return (<Search/>);
@@ -17,6 +18,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Search" component={SearchingPage}/>
         <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="SearchResult" component={SearchResult}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
