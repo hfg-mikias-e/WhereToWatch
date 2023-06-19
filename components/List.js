@@ -34,12 +34,16 @@ const List = ({ searchPhrase, setClicked, data }) => {
       date = item.first_air_date.substring(0, 4) // only release year of tv show
     }
 
-    // filter of the name
-    if (item.title !== undefined && item.title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
-      return <Item name={item.title} year={date} mediatype={item.media_type}/>;
+    let title = ""
+    if(item.title !== undefined) {
+      title = item.title // movie title
+    } else if (item.name !== undefined) {
+      title = item.name // tv show name
     }
-    else if (item.name !== undefined && item.name.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
-      return <Item name={item.name} year={date} mediatype={item.media_type}/>;
+
+    // filter of the name
+    if (title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
+      return <Item name={title} year={date} mediatype={item.media_type} onPress={() => navigation.navigate('Result')}/>;
     }
   };
 
