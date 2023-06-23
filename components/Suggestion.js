@@ -5,7 +5,7 @@ const Suggestion = ({title , image}) => {
   return(
   <View style={styles.box}>
     <View style = {styles.suggestionBox}>
-      <ImageBackground source={{uri: image}} blurRadius={5} style={styles.image} imageStyle={{ borderRadius: 10, height: 90, width: 320,}}>
+      <ImageBackground source={{uri: image._j}} blurRadius={5} style={styles.image} imageStyle={{ borderRadius: 10, height: 90, width: 320,}}>
         <View style= {styles.titleBox}>
         <Text style = {styles.movieTitle}>{title}</Text>  
         </View>
