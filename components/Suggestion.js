@@ -1,9 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, ImageBackground} from 'react-native';
+import {Text, View, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Suggestion = ({title , image}) => {
+  const navigation = useNavigation();
   return(
-  <View style={styles.box}>
+  <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('SearchResult')}>
     <View style = {styles.suggestionBox}>
       <ImageBackground source={{uri: image._j}} blurRadius={5} style={styles.image} imageStyle={{ borderRadius: 10, height: 90, width: 320,}}>
         <View style= {styles.titleBox}>
@@ -11,7 +13,7 @@ const Suggestion = ({title , image}) => {
         </View>
       </ImageBackground>
     </View>
-  </View>
+  </TouchableOpacity>
   )
 }
 
