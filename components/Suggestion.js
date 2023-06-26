@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 const Suggestion = ({title , image}) => {
   const navigation = useNavigation();
   return(
-  <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('SearchResult')}>
+  <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('SearchResult', { result: title})}>
     <View style = {styles.suggestionBox}>
       <ImageBackground source={{uri: image._j}} blurRadius={5} style={styles.image} imageStyle={{ borderRadius: 10, height: 90, width: 320,}}>
         <View style= {styles.titleBox}>
