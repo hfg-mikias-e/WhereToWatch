@@ -12,17 +12,17 @@ const Welcome = () => {
 
 const styles = StyleSheet.create({
     WelcomeBox: {
-    alignSelf: 'flex-start',
-    paddingTop: 80,
-    paddingLeft: 40,
-    paddingBottom: 30,
-    gap: 10,
+      alignSelf: 'flex-start',
+      paddingTop: 80,
+      paddingLeft: 40,
+      paddingBottom: 30,
+      gap: 10,
     },
     UserText: {
-    fontSize: 25,
+      fontSize: 25,
     },
     QuestionText: {
-    fontSize: 20,
+      fontSize: 20,
     },
     
 }
