@@ -15,7 +15,7 @@ const SearchResult = () => {
   const route = useRoute();
   const title = route.params.result;
   console.log(title);
-    
+  
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -78,9 +78,9 @@ const SearchResult = () => {
         <Text>Duration: {data.result[0].runtime} Minutes</Text>
       </View>
     </View>
-    
     </View>
   );
-};
+  };
+
 
 export default SearchResult;
