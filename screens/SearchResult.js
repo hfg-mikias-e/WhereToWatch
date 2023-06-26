@@ -1,31 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
 
 const SearchResult = () => {
-  const [filmData, setFilmData] = useState(null);
-
+  const navigation = useNavigation();
+  const [data, setData] = useState([]);
+  const [appIsReady, setAppIsReady] = useState(false);
+    
   useEffect(() => {
-    fetchFilmData();
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2RhZjNiZjk1ZDBlMTViMzJkYTdhZjQ5MDdiOWI5MSIsInN1YiI6IjY0OGYwZTQwYzNjODkxMDBjYWRhY2RjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v7T4hBU5uvtIUWt3_jIzLUUga8r6Ix_2ShpdGH58BPY'
+      }
+    };
+    async function prepare() {
+      try {
+        const response = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+        const json = await response.json();
+        setData(json.results);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Tell the application to render
+        setAppIsReady(true);
+      }
+    }
+
+    prepare();
   }, []);
 
-  const fetchFilmData = () => {
-    fetch('https://streaming-availability.p.rapidapi.com/v2/search/title?title=Fast X&country=de&show_type=movie&output_language=en')
-      .then(response => response.json())
-      .then(data => {
-        setFilmData(data);
-      })
-      .catch(error => {
-        console.error('Fehler beim Abrufen der Filminformationen:', error);
-      });
-  };
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
 
-  if (!filmData) {
-    return (
-      <View>
-        <Text>Lade Filminformationen...</Text>
-      </View>
-    );
+  if (!appIsReady) {
+    return null;
   }
+
+  const GetImage = async(index) => {
+    const ImagePath = data[index].poster_path;
+    const ImageURL = `https://image.tmdb.org/t/p/w500${ImagePath}`;
+    return ImageURL;
+  }
+
+  const GetTitle = (index) => {
+    if(data[index].media_type == 'tv'){
+      return data[index].name
+    }
+    if(data[index].media_type == 'movie'){
+      return data[index].title
+    }
+  }
+
 
   return (
     <View style={styles.container}>
