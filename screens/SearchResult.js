@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet, } from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import BackButton from '../components/BackButton';
 
+const styles = require('../style');
 
 SplashScreen.preventAutoHideAsync();
 
@@ -12,7 +14,8 @@ const SearchResult = () => {
   const [appIsReady, setAppIsReady] = useState(false);
   const route = useRoute();
   const title = route.params.result;
-    
+  console.log(title);
+  
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -23,9 +26,9 @@ const SearchResult = () => {
     };
     async function prepare() {
       try {
-        const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=de&show_type=movie&output_language=en`, options)
+        const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=de&output_language=en`, options)
         const json = await response.json();
-        setData(json.results);
+        setData(json);
       } catch (e) {
         console.warn(e);
       } finally {
@@ -53,13 +56,13 @@ const SearchResult = () => {
   }
 
   return (
-    <View style={styles.container}>      
-    
+    <View style={styles.root} onLayout={onLayoutRootView}>      
     <View style = {styles.page}>
       <View style = {styles.poster}>
-        <Image source={{uri: data[0].backdropURLs.original}}></Image>
+        <ImageBackground style = {styles.background} source={{uri: data.result[0].backdropURLs.original}}>
         <BackButton/>
-        <Text style = {styles.texttitle}>Film-Title</Text>
+        <Text style = {styles.texttitle}>{data.result[0].title}</Text>
+        </ImageBackground>      
       </View>
       
       <View style = {styles.title}></View>
@@ -71,85 +74,13 @@ const SearchResult = () => {
       </View>
 
       <View style = {styles.info}>
-        <Text>Releasedate: YYYY-MM-DD</Text>
-        <Text>Duration: XX hrs XX min </Text>
+        <Text>Release-Year: {data.result[0].year}</Text>
+        <Text>Duration: {data.result[0].runtime} Minutes</Text>
       </View>
     </View>
-    {/*<View>
-      <Image source={{ uri:  filmData.poster_path }} style={{ width: 200, height: 300 }} />
-      
-
-      <Text>{filmData.title}</Text>
-      <Text>Releasedate: {filmData.release_date}</Text>
-    </View>*/}
     </View>
   );
   };
-
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-    },
-
-    back: {
-      position: "absolute"
-    },
-
-    page:{
-      alignItems:'flex-start',
-      justifyContent:'center',
-      gap:10,
-      
-    
-    },
-    poster:{
-      alignSelf: 'flex-start',
-      backgroundColor: 'grey',
-      width: 390,
-      height: 300,
-      padding: 20,
-    },
-
-    title:{
-      alignSelf:'Column',
-      padding: 20,
-
-    },
-
-    texttitle:{
-      fontSize:40,
-      color:'white',
-      alignSelf:'flex-start',
-      alignSelf: 'column',
-      
-    },
-
-    stream:{
-      alignSelf:'center',
-      padding: 20,
-      backgroundColor:'#e6e6e6',
-      width: 350,
-      borderRadius: 10,
-
-
-    },
-
-    textStream:{
-      fontSize:20,
-      alignSelf: 'flex-start'
-    },
-
-    info:{
-      padding: 20,
-      alignSelf:'center',
-      backgroundColor: '#e6e6e6',
-      width: 350,
-      borderRadius: 10,
-    },
-  });
 
 
 export default SearchResult;

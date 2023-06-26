@@ -13,22 +13,22 @@ const SearchButton = () => {
   
 const styles = StyleSheet.create({
 appButtonContainer: {
-justifyContent: 'center',
-alignItems: 'center',
-backgroundColor: "#B7B7B7",
-borderRadius: 40,
-height: 80,
-width: 80,
-position: 'absolute',
-top: 725,
-left: 150,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: "#B7B7B7",
+  borderRadius: 40,
+  height: 80,
+  width: 80,
+  position: 'absolute',
+  top: 725,
+  left: 150,
 },
 appButtonText: {
-fontSize: 30,
+  fontSize: 30,
 },
 SearchIcon: {
-height:60,
-width:60,
+  height:60,
+  width:60,
 },
 })
 

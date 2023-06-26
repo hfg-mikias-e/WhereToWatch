@@ -7,6 +7,8 @@ import Welcome from '../components/Welcome';
 import SearchButton from '../components/SearchButton';
 import * as SplashScreen from 'expo-splash-screen';
 
+const styles = require('../style');
+
 SplashScreen.preventAutoHideAsync();
 
 const HomeScreen = (probs) => {
@@ -69,7 +71,7 @@ const HomeScreen = (probs) => {
   }
 
   return (
-    <View style= {styles.container} onLayout={onLayoutRootView}>
+    <View style= {styles.root} onLayout={onLayoutRootView}>
       <Welcome/>
       <ScrollView showsVerticalScrollIndicator={false}>
       <Suggestion title={GetTitle(0)} image = {GetImage(0)}/>
@@ -88,17 +90,5 @@ const HomeScreen = (probs) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-container: {
-alignItems: 'center',
-justifyContent: 'center',
-},
-filler: {
-  backgroundColor:'#F0F0F0',
-  height:250,
-},
-}
-)
 
 export default HomeScreen;

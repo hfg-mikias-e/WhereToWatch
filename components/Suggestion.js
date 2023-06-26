@@ -18,7 +18,7 @@ const Suggestion = ({title , image}) => {
 
 const styles = StyleSheet.create({
     box:{
-    padding: 10,
+      padding: 10,
     },
     suggestionBox: {
     backgroundColor: '#FFFFFF',
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     },
     titleBox:{
-    paddingTop: 25,
-    paddingLeft: 20,
+      paddingTop: 25,
+      paddingLeft: 20,
     },
     image:{
       justifyContent:'flex-start',
