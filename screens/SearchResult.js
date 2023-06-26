@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import { useNavigation } from '@react-navigation/native';
+
+
+SplashScreen.preventAutoHideAsync();
 
 const SearchResult = () => {
-  const [filmData, setFilmData] = useState(null);
-
+  const navigation = useNavigation();
+  const [data, setData] = useState([]);
+  const [appIsReady, setAppIsReady] = useState(false);
+  const route = useRoute();
+  const title = route.params.result;
+    
   useEffect(() => {
     const options = {
       method: 'GET',
       headers: {
-        accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2RhZjNiZjk1ZDBlMTViMzJkYTdhZjQ5MDdiOWI5MSIsInN1YiI6IjY0OGYwZTQwYzNjODkxMDBjYWRhY2RjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v7T4hBU5uvtIUWt3_jIzLUUga8r6Ix_2ShpdGH58BPY'
+        'X-RapidAPI-Key': 'fb83f7ff8emsh8a56c247160adc4p17e0edjsnbcb6d9b23ec4',
+        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
       }
     };
     async function prepare() {
       try {
-        const response = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+        const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=de&show_type=movie&output_language=en`, options)
         const json = await response.json();
         setData(json.results);
       } catch (e) {
@@ -43,27 +52,12 @@ const SearchResult = () => {
     return null;
   }
 
-  const GetImage = async(index) => {
-    const ImagePath = data[index].poster_path;
-    const ImageURL = `https://image.tmdb.org/t/p/w500${ImagePath}`;
-    return ImageURL;
-  }
-
-  const GetTitle = (index) => {
-    if(data[index].media_type == 'tv'){
-      return data[index].name
-    }
-    if(data[index].media_type == 'movie'){
-      return data[index].title
-    }
-  }
-
-
   return (
     <View style={styles.container}>      
     
     <View style = {styles.page}>
       <View style = {styles.poster}>
+        <Image source={{uri: data[0].backdropURLs.original}}></Image>
         <BackButton/>
         <Text style = {styles.texttitle}>Film-Title</Text>
       </View>
