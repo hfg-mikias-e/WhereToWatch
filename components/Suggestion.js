@@ -7,9 +7,8 @@ const Suggestion = ({title , image}) => {
   return(
   <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('SearchResult', { result: title})}>
     <View style = {styles.suggestionBox}>
-      <ImageBackground source={{uri: image._j}} blurRadius={5} style={styles.image} imageStyle={{ borderRadius: 10, height: 90, width: 320,}}>
-        <View style= {styles.titleBox}>
-        <Text style = {styles.movieTitle}>{title}</Text>  
+      <ImageBackground source={{uri: image._j}} blurRadius={0} style={styles.image} imageStyle={{ borderRadius: 10, height: 450, width: 320,}}>
+        <View style= {styles.titleBox}>  
         </View>
       </ImageBackground>
     </View>
@@ -23,18 +22,13 @@ const styles = StyleSheet.create({
     },
     suggestionBox: {
     backgroundColor: '#FFFFFF',
-    height: 90,
+    height: 450,
     width: 320,
     borderRadius: 10,
     },
     titleBox:{
     paddingTop: 25,
     paddingLeft: 20,
-    },
-    movieTitle: {
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'white',
     },
     image:{
       justifyContent:'flex-start',
