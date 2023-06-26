@@ -3,6 +3,8 @@ import { View, Text, Image, StyleSheet, } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import BackButton from '../components/BackButton';
 
+const styles = require('../style');
+
 const SearchResult = () => {
   const route = useRoute();
   console.log(route.params)
@@ -18,6 +20,7 @@ const SearchResult = () => {
       .then(response => response.json())
       .then(data => {
         setFilmData(data);
+        console.log(data)
       })
       .catch(error => {
         console.error('Fehler beim Abrufen der Filminformationen:', error);
@@ -33,7 +36,7 @@ const SearchResult = () => {
   }
 
   return (
-    <View style={styles.container}>      
+    <View style={styles.root}>      
     
     <View style = {styles.page}>
       <View style = {styles.poster}>
@@ -63,72 +66,6 @@ const SearchResult = () => {
     </View>*/}
     </View>
   );
-  };
-
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-    },
-
-    back: {
-      position: "absolute"
-    },
-
-    page:{
-      alignItems:'flex-start',
-      justifyContent:'center',
-      gap:10,
-      
-    
-    },
-    poster:{
-      alignSelf: 'flex-start',
-      backgroundColor: 'grey',
-      width: 390,
-      height: 300,
-      padding: 20,
-    },
-
-    title:{
-      alignSelf:'Column',
-      padding: 20,
-
-    },
-
-    texttitle:{
-      fontSize:40,
-      color:'white',
-      alignSelf:'flex-start',
-      alignSelf: 'column',
-      
-    },
-
-    stream:{
-      alignSelf:'center',
-      padding: 20,
-      backgroundColor:'#e6e6e6',
-      width: 350,
-      borderRadius: 10,
-
-
-    },
-
-    textStream:{
-      fontSize:20,
-      alignSelf: 'flex-start'
-    },
-
-    info:{
-      padding: 20,
-      alignSelf:'center',
-      backgroundColor: '#e6e6e6',
-      width: 350,
-      borderRadius: 10,
-    },
-  });
-
+};
 
 export default SearchResult;

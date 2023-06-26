@@ -17,22 +17,22 @@ const Suggestion = ({title , image}) => {
 
 const styles = StyleSheet.create({
     box:{
-    padding: 10,
+      padding: 10,
     },
     suggestionBox: {
-    backgroundColor: '#FFFFFF',
-    height: 90,
-    width: 320,
-    borderRadius: 10,
+      backgroundColor: '#FFFFFF',
+      height: 90,
+      width: 320,
+      borderRadius: 10,
     },
     titleBox:{
-    paddingTop: 25,
-    paddingLeft: 20,
+      paddingTop: 25,
+      paddingLeft: 20,
     },
     movieTitle: {
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'white',
+      fontWeight: 'bold',
+      fontSize: 25,
+      color: 'white',
     },
     image:{
       justifyContent:'flex-start',
