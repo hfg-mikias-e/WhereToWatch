@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
@@ -14,6 +15,14 @@ const SearchResult = () => {
   const title = route.params.result;
   console.log(title);
     
+=======
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, StyleSheet, } from 'react-native';
+
+const SearchResult = () => {
+  const [filmData, setFilmData] = useState(null);
+
+>>>>>>> Stashed changes
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -54,6 +63,7 @@ const SearchResult = () => {
   }
 
   return (
+<<<<<<< Updated upstream
     <View style={styles.container} onLayout={onLayoutRootView}>      
     <View style = {styles.page}>
       <View style = {styles.poster}>
@@ -61,6 +71,14 @@ const SearchResult = () => {
         <BackButton/>
         <Text style = {styles.texttitle}>{data.result[0].title}</Text>
         </ImageBackground>      
+=======
+    <View style={styles.container}>      
+    
+    <View style = {styles.page}>
+      <View style = {styles.poster}>
+        <BackButton/>
+        <Text style = {styles.texttitle}>Film-Title</Text>
+>>>>>>> Stashed changes
       </View>
       
       <View style = {styles.title}></View>
@@ -76,7 +94,17 @@ const SearchResult = () => {
         <Text>Duration: {data.result[0].runtime} Minutes</Text>
       </View>
     </View>
+<<<<<<< Updated upstream
     
+=======
+    {/*<View>
+      <Image source={{ uri:  filmData.poster_path }} style={{ width: 200, height: 300 }} />
+      
+
+      <Text>{filmData.title}</Text>
+      <Text>Releasedate: {filmData.release_date}</Text>
+    </View>*/}
+>>>>>>> Stashed changes
     </View>
   );
   };
@@ -93,6 +121,7 @@ const SearchResult = () => {
       position: "absolute"
     },
 
+<<<<<<< Updated upstream
     background:{
       alignSelf:'flex-start',
       width: 390,
@@ -103,6 +132,8 @@ const SearchResult = () => {
     
     },
 
+=======
+>>>>>>> Stashed changes
     page:{
       alignItems:'flex-start',
       justifyContent:'center',
@@ -115,7 +146,11 @@ const SearchResult = () => {
       backgroundColor: 'grey',
       width: 390,
       height: 300,
+<<<<<<< Updated upstream
       
+=======
+      padding: 20,
+>>>>>>> Stashed changes
     },
 
     title:{
