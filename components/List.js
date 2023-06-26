@@ -1,25 +1,20 @@
 // List.js
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, SafeAreaView } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 // definition of the Item, which will be rendered in the FlatList
 const Item = ({ name, year, mediatype }) => {
+  const navigation = useNavigation();
   if(mediatype !== "person") {
     return (
-      <View style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('SearchResult', { result: name })}>
         <Text style={styles.title}>{name}</Text>
         <View style={styles.info}>
           <Text style={styles.year}>{year}</Text>
           <Text style={styles.mediatype}>{mediatype.toUpperCase()}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 };
@@ -43,7 +38,7 @@ const List = ({ searchPhrase, setClicked, data }) => {
 
     // filter of the name
     if (title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, " "))) {
-      return <Item name={title} year={date} mediatype={item.media_type} onPress={() => navigation.navigate('Result')}/>;
+      return <Item name={title} year={date} mediatype={item.media_type}/>;
     }
   };
 
