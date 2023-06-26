@@ -28,13 +28,10 @@ module.exports = StyleSheet.create({
         backgroundColor: 'grey',
         width: 390,
         height: 300,
-        padding: 20,
     },
   
     title:{
-        alignSelf:'Column',
-        padding: 20,
-  
+        padding: 10
     },
   
     texttitle:{
@@ -62,6 +59,20 @@ module.exports = StyleSheet.create({
         backgroundColor: '#e6e6e6',
         width: 350,
         borderRadius: 10,
-    }
+    },
+
+    container: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+  
+    background:{
+        alignSelf:'flex-start',
+        width: 390,
+        height: 300,
+        paddingTop : 40,
+        paddingLeft : 20,
+    },
 });
 
