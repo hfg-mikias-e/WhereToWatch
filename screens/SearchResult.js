@@ -1,38 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import BackButton from '../components/BackButton';
+import * as SplashScreen from 'expo-splash-screen';
+import { useNavigation } from '@react-navigation/native';
 
 const styles = require('../style');
 
+SplashScreen.preventAutoHideAsync();
+
 const SearchResult = () => {
+  const navigation = useNavigation();
+  const [data, setData] = useState([]);
+  const [appIsReady, setAppIsReady] = useState(false);
   const route = useRoute();
-  console.log(route.params)
-
-  const [filmData, setFilmData] = useState([]);
-
+  const title = route.params.result;
+    
   useEffect(() => {
-    fetchFilmData();
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'fb83f7ff8emsh8a56c247160adc4p17e0edjsnbcb6d9b23ec4',
+        'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
+      }
+    };
+    async function prepare() {
+      try {
+        const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=de&show_type=movie&output_language=en`, options)
+        const json = await response.json();
+        setData(json.results);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Tell the application to render
+        setAppIsReady(true);
+      }
+    }
+
+    prepare();
   }, []);
 
-  const fetchFilmData = () => {
-    fetch('https://streaming-availability.p.rapidapi.com/v2/search/title?title=Fast X&country=de&show_type=movie&output_language=en')
-      .then(response => response.json())
-      .then(data => {
-        setFilmData(data);
-        console.log(data)
-      })
-      .catch(error => {
-        console.error('Fehler beim Abrufen der Filminformationen:', error);
-      });
-  };
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
 
-  if (!filmData) {
-    return (
-      <View>
-        <Text>Lade Filminformationen...</Text>
-      </View>
-    );
+  if (!appIsReady) {
+    return null;
   }
 
   return (
@@ -40,6 +58,7 @@ const SearchResult = () => {
     
     <View style = {styles.page}>
       <View style = {styles.poster}>
+        <Image source={{uri: data[0].backdropURLs.original}}></Image>
         <BackButton/>
         <Text style = {styles.texttitle}>Film-Title</Text>
       </View>
