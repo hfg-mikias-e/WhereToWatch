@@ -43,7 +43,6 @@ export default function Search() {
 const styles = StyleSheet.create({
   root: {
     alignItems: "center",
-    height: "100%",
-    //backgroundColor: "rgb(20, 20, 20)"
+    height: "100%"
   }
 });

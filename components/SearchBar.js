@@ -4,11 +4,13 @@ import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 
+import BackButton from "../components/BackButton";
+
 const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Entypo name="chevron-left" size={20} color="black" onPress={() => navigation.navigate('Home')}/>
+      <BackButton/>
       <View
         style={
           clicked
@@ -33,7 +35,7 @@ const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) => {
           }}
         />
         {/* cross Icon, depending on whether the search bar is clicked or not */}
-        {clicked && (
+        {searchPhrase && (
           <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
               setSearchPhrase("")
           }}/>
