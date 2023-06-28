@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useCallback} from 'react';
-import { View, Text, FlatList, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Suggestion from '../components/Suggestion';
 import Welcome from '../components/Welcome';
