@@ -1,0 +1,70 @@
+{
+    "advisedMinimumAudienceAge": 3, 
+    "backdropPath": "/sRvXNDItGlWCqtO3j6wks52FmbD.jpg", 
+    "backdropURLs": {
+        "1280": "https://image.tmdb.org/t/p/w1280/sRvXNDItGlWCqtO3j6wks52FmbD.jpg", 
+        "300": "https://image.tmdb.org/t/p/w300/sRvXNDItGlWCqtO3j6wks52FmbD.jpg", 
+        "780": "https://image.tmdb.org/t/p/w780/sRvXNDItGlWCqtO3j6wks52FmbD.jpg", 
+        "original": "https://image.tmdb.org/t/p/original/sRvXNDItGlWCqtO3j6wks52FmbD.jpg"
+    }, 
+    "cast": [
+        "Mike Myers", 
+        "Eddie Murphy", 
+        "Cameron Diaz", 
+        "John Lithgow", 
+        "Vincent Cassel", 
+        "Peter Dennis", 
+        "Clive Pearse"
+    ], 
+    "countries": [
+        "US"
+    ], 
+    "directors": [
+        "Andrew Adamson", 
+        "Vicky Jenson"
+    ], 
+    "genres": [
+        {
+            "id": 16, 
+            "name": "Animation"
+        }, 
+        {
+            "id": 12, "name": "Adventure"
+        }, 
+        {
+            "id": 35, "name": "Comedy"
+        }
+    ], 
+    "imdbId": "tt0126029", 
+    "imdbRating": 79, 
+    "imdbVoteCount": 702831, 
+    "originalLanguage": "en", 
+    "originalTitle": "Shrek", 
+    "overview": "It ain't easy bein' green -- especially if you're a likable (albeit smelly) ogre named Shrek. On a mission to retrieve a gorgeous princess from the clutches of a fire-breathing dragon, Shrek teams up with an unlikely compatriot -- a wisecracking donkey.", 
+    "posterPath": "/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg",
+    "posterURLs": {
+        "154": "https://image.tmdb.org/t/p/w154/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "185": "https://image.tmdb.org/t/p/w185/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "342": "https://image.tmdb.org/t/p/w342/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "500": "https://image.tmdb.org/t/p/w500/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "780": "https://image.tmdb.org/t/p/w780/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "92": "https://image.tmdb.org/t/p/w92/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg", 
+        "original": "https://image.tmdb.org/t/p/original/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg"
+    }, 
+    "runtime": 90, 
+    "streamingInfo": {
+        "de": {
+            "apple": [Array], 
+            "netflix": [Array], 
+            "prime": [Array]
+        }
+    }, 
+    "tagline": "The greatest fairy tale never told.", 
+    "title": "Shrek", 
+    "tmdbId": 808, 
+    "tmdbRating": 77, 
+    "type": "movie", 
+    "year": 2001, 
+    "youtubeTrailerVideoId": "CwXOrWvPBPk", 
+    "youtubeTrailerVideoLink": "https://www.youtube.com/watch?v=CwXOrWvPBPk"
+}

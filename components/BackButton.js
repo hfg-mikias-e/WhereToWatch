@@ -15,11 +15,16 @@ const BackButton = () => {
 const styles = StyleSheet.create({
   back: {
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 40,
     width: 44,
     height: 44,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+    },
   }
 })
 

@@ -1,39 +1,32 @@
 import React from 'react';
-import {Text, View, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Suggestion = ({title , image}) => {
   const navigation = useNavigation();
   return(
-  <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('SearchResult', { result: title})}>
-    <View style = {styles.suggestionBox}>
-      <ImageBackground source={{uri: image._j}} blurRadius={0} style={styles.image} imageStyle={{ borderRadius: 10, height: 450, width: 320,}}>
-        <View style= {styles.titleBox}>  
-        </View>
-      </ImageBackground>
+    <View style={styles.container}>
+    <TouchableOpacity style={styles.suggestionBox} onPress={() => navigation.navigate('SearchResult', { result: title})}>
+      <ImageBackground source={{uri: image._j}} blurRadius={0} imageStyle={{width: "100%", height: 500}}></ImageBackground>
+    </TouchableOpacity>
     </View>
-  </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-    box:{
-      padding: 10,
-    },
+    container: {
+      width: "100%",
+      alignItems: "center",
+      paddingHorizontal: 20
+    }, 
     suggestionBox: {
-    backgroundColor: '#FFFFFF',
-    height: 450,
-    width: 320,
-    borderRadius: 10,
-    },
-    titleBox:{
-      paddingTop: 25,
-      paddingLeft: 20,
-    },
-    image:{
-      justifyContent:'flex-start',
+      backgroundColor: '#FFFFFF',
+      height: 500,
+      width: "100%",
+      borderRadius: 8,
+      marginBottom: 20,
+      overflow: "hidden"
     }
-}
-)
+})
 
 export default Suggestion;
