@@ -46,7 +46,7 @@ module.exports = StyleSheet.create({
         backgroundColor:'#e6e6e6',
         width: "100%",
         borderRadius: 10,
-        gap: 12
+        gap: 16
     },
   
     textStream:{
@@ -75,6 +75,16 @@ module.exports = StyleSheet.create({
         height: "100%", 
         justifyContent: "space-between", 
         flexDirection: "column"
+    },
+
+    streamOption: {
+        fontSize: 16,
+        padding: 8,
+        backgroundColor: "white",
+        textAlign: "center",
+        width: "100%",
+        borderRadius: 12,
+        overflow: "hidden"
     }
 });
 

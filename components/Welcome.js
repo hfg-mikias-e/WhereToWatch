@@ -5,7 +5,7 @@ const Welcome = () => {
   return(
     <View style = {styles.WelcomeBox}>
         <Text style = {styles.UserText}>Hi, Lars!</Text>
-        <Text style = {styles.QuestionText}>Was möchtest Du heute sehen?</Text>
+        <Text style = {styles.QuestionText}>What do you want to watch today?</Text>
     </View>
   )
 }
