@@ -5,12 +5,11 @@ module.exports = StyleSheet.create({
     root: {
         flex: 1,
         alignItems: "center",
-        height: "100%"
+        height: "100%",
     },
 
     filler: {
-        backgroundColor:'#F0F0F0',
-        height:250,
+        height: 120
     },
   
     back: {
@@ -18,34 +17,36 @@ module.exports = StyleSheet.create({
     },
   
     page:{
-        alignItems:'flex-start',
-        justifyContent:'center',
-        gap:10,
+        gap: 12,
+        width: "100%",
+        padding: 20,
     },
 
     poster:{
         alignSelf: 'flex-start',
-        backgroundColor: 'grey',
-        width: 390,
-        height: 300,
-    },
-  
-    title:{
-        padding: 10
+        backgroundColor: 'black',
+        width: "100%",
+        height: 280,
     },
   
     texttitle:{
         fontSize:40,
         color:'white',
         alignSelf:'flex-start',
+        shadowRadius: 8,
+        shadowOpacity: 1,
+        shadowOffset: {
+            height: 2
+        }
     },
   
     stream:{
         alignSelf:'center',
         padding: 20,
         backgroundColor:'#e6e6e6',
-        width: 350,
+        width: "100%",
         borderRadius: 10,
+        gap: 12
     },
   
     textStream:{
@@ -57,22 +58,23 @@ module.exports = StyleSheet.create({
         padding: 20,
         alignSelf:'center',
         backgroundColor: '#e6e6e6',
-        width: 350,
+        width: "100%",
         borderRadius: 10,
-    },
-
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
     },
   
     background:{
         alignSelf:'flex-start',
-        width: 390,
-        height: 300,
-        paddingTop : 40,
-        paddingLeft : 20,
+        width: "100%",
+        height: "100%"
     },
+
+    headerBox: {
+        paddingHorizontal: 20, 
+        paddingTop: 48, 
+        paddingBottom: 12, 
+        height: "100%", 
+        justifyContent: "space-between", 
+        flexDirection: "column"
+    }
 });
 
