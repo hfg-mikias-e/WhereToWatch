@@ -15,13 +15,17 @@ const styles = StyleSheet.create({
 appButtonContainer: {
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: "#B7B7B7",
+  backgroundColor: "white",
   borderRadius: 40,
   height: 80,
   width: 80,
   position: 'absolute',
-  top: 725,
-  left: 150,
+  bottom: 36,
+  shadowOpacity: 0.6,
+  shadowRadius: 4,
+  shadowOffset: {
+    height: 2,
+  },
 },
 appButtonText: {
   fontSize: 30,

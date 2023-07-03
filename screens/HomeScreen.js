@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useCallback} from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Suggestion from '../components/Suggestion';
 import Welcome from '../components/Welcome';
@@ -71,20 +71,20 @@ const HomeScreen = (probs) => {
   }
 
   return (
-    <View style= {styles.root} onLayout={onLayoutRootView}>
-      <Welcome/>
-      <ScrollView showsVerticalScrollIndicator={false}>
-      <Suggestion title={GetTitle(0)} image = {GetImage(0)}/>
-      <Suggestion title={GetTitle(1)} image = {GetImage(1)}/>
-      <Suggestion title={GetTitle(2)} image = {GetImage(2)}/>
-      <Suggestion title={GetTitle(3)} image = {GetImage(3)}/>
-      <Suggestion title={GetTitle(4)} image = {GetImage(4)}/>
-      <Suggestion title={GetTitle(5)} image = {GetImage(5)}/>
-      <Suggestion title={GetTitle(6)} image = {GetImage(6)}/>
-      <Suggestion title={GetTitle(7)} image = {GetImage(7)}/>
-      <Suggestion title={GetTitle(8)} image = {GetImage(8)}/> 
-      <Suggestion title={GetTitle(9)} image = {GetImage(9)}/>
-      <View style = {styles.filler}></View>
+    <View style={styles.root} onLayout={onLayoutRootView}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{width: "100%"}}>
+        <Welcome/>
+        <Suggestion title={GetTitle(0)} image = {GetImage(0)}/>
+        <Suggestion title={GetTitle(1)} image = {GetImage(1)}/>
+        <Suggestion title={GetTitle(2)} image = {GetImage(2)}/>
+        <Suggestion title={GetTitle(3)} image = {GetImage(3)}/>
+        <Suggestion title={GetTitle(4)} image = {GetImage(4)}/>
+        <Suggestion title={GetTitle(5)} image = {GetImage(5)}/>
+        <Suggestion title={GetTitle(6)} image = {GetImage(6)}/>
+        <Suggestion title={GetTitle(7)} image = {GetImage(7)}/>
+        <Suggestion title={GetTitle(8)} image = {GetImage(8)}/> 
+        <Suggestion title={GetTitle(9)} image = {GetImage(9)}/>
+        <View style = {styles.filler}></View>
       </ScrollView> 
       <SearchButton/>
     </View>
