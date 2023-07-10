@@ -36,9 +36,10 @@ const SearchResult = () => {
 
     async function prepare() {
       try {
-        //const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=us&output_language=en`, options)
-        //const json = await response.json();
+        const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=us&output_language=en`, options)
+        const json = await response.json();
 
+        /*
         const json = {
           "result": [
             {
@@ -126,12 +127,13 @@ const SearchResult = () => {
             }
           ]
         }
+        */
 
         setData(json)
         const availableStreams = await fetchStreamingServices(json)
         setStreams(availableStreams)
       } catch (e) {
-        console.warn(e);
+        //console.warn(e);
       } finally {
         // Tell the application to render
         setAppIsReady(true);
