@@ -16,9 +16,7 @@ export default function Search() {
   // get new api data whenever the search input has at least 3 characters
   useEffect(() => {
     const getData = async () => {
-      const apiResponse = await fetch(
-        `https://api.themoviedb.org/3/search/multi?query=${searchPhrase}&include_adult=false&page=1&api_key=64c853ad9e6c91621e4ff3f63d5163b0`
-      );
+      const apiResponse = await fetch(`https://api.themoviedb.org/3/search/multi?query=${searchPhrase}&include_adult=false&page=1&api_key=${process.env.TMD_API_KEY}`);
       const data = await apiResponse.json();
       setApiData(data.results);
     };

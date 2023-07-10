@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     WelcomeBox: {
       alignSelf: 'flex-start',
       paddingHorizontal: 20,
-      paddingTop: 60,
-      paddingBottom: 28,
+      paddingTop: 64,
+      paddingBottom: 32,
       gap: 8,
     },
     UserText: {
