@@ -26,7 +26,7 @@ module.exports = StyleSheet.create({
         alignSelf: 'flex-start',
         backgroundColor: 'black',
         width: "100%",
-        height: 280,
+        height: 240,
     },
   
     texttitle:{
@@ -41,12 +41,8 @@ module.exports = StyleSheet.create({
     },
   
     stream:{
-        alignSelf:'center',
-        padding: 20,
-        backgroundColor:'#e6e6e6',
-        width: "100%",
-        borderRadius: 10,
-        gap: 16
+        flex: 1,
+        resizeMode: 'contain',
     },
   
     textStream:{
@@ -61,16 +57,10 @@ module.exports = StyleSheet.create({
         width: "100%",
         borderRadius: 10,
     },
-  
-    background:{
-        alignSelf:'flex-start',
-        width: "100%",
-        height: "100%"
-    },
 
     headerBox: {
         paddingHorizontal: 20, 
-        paddingTop: 48, 
+        paddingTop: 56, 
         paddingBottom: 12, 
         height: "100%", 
         justifyContent: "space-between", 
@@ -78,13 +68,20 @@ module.exports = StyleSheet.create({
     },
 
     streamOption: {
-        fontSize: 16,
-        padding: 8,
+        height: 120,
+        width: "40%",
         backgroundColor: "white",
-        textAlign: "center",
-        width: "100%",
         borderRadius: 12,
-        overflow: "hidden"
+        padding: 16,
+        flexGrow: 1
+    },
+
+    available: {
+        borderWidth: 1,
+        flexDirection: "row",
+        width: "100%",
+        flexWrap: "wrap",
+        gap: 12,
     }
 });
 

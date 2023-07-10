@@ -7,7 +7,7 @@ const Suggestion = ({title , image}) => {
   return(
     <View style={styles.container}>
     <TouchableOpacity style={styles.suggestionBox} onPress={() => navigation.navigate('SearchResult', { result: title})}>
-      <ImageBackground source={{uri: image._j}} blurRadius={0} imageStyle={{width: "100%", height: 500}}></ImageBackground>
+      <ImageBackground source={{uri: image._j}} blurRadius={0} imageStyle={{width: "100%", height: 520}}></ImageBackground>
     </TouchableOpacity>
     </View>
   )
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     }, 
     suggestionBox: {
       backgroundColor: '#FFFFFF',
-      height: 500,
+      height: 520,
       width: "100%",
       borderRadius: 8,
       marginBottom: 20,

@@ -17,16 +17,9 @@ const HomeScreen = (probs) => {
   const [appIsReady, setAppIsReady] = useState(false);
     
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2RhZjNiZjk1ZDBlMTViMzJkYTdhZjQ5MDdiOWI5MSIsInN1YiI6IjY0OGYwZTQwYzNjODkxMDBjYWRhY2RjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v7T4hBU5uvtIUWt3_jIzLUUga8r6Ix_2ShpdGH58BPY'
-      }
-    };
     async function prepare() {
       try {
-        const response = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+        const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?include_adult=false&language=en-US&api_key=${process.env.TMD_API_KEY}`);
         const json = await response.json();
         setData(json.results);
       } catch (e) {
