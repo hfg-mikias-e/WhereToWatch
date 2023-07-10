@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'react-native';
+//import { StatusBar } from 'react-native';
 
 import Search from './screens/Search';
 import HomeScreen from './screens/HomeScreen';
