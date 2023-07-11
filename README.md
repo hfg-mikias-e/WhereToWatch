@@ -1,6 +1,7 @@
 # WhereToWatch
 
 #Situation
+
 Man möchte einen Film oder eine Serie schauen. Bei der großen Auswahl an Streaming
 Diensten mittlerweile weiß man aber nicht mehr, wo der Film oder die Serie verfügbar ist.
 Oder man weiß noch nicht, was man schauen möchte und möchte Streaming Dienst
