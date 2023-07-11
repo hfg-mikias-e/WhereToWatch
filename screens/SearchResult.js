@@ -38,6 +38,7 @@ const SearchResult = () => {
       try {
         const response = await fetch(`https://streaming-availability.p.rapidapi.com/v2/search/title?title=${title}&country=us&output_language=en`, options)
         const json = await response.json();
+        console.log(json)
 
         /*
         const json = {
@@ -133,7 +134,7 @@ const SearchResult = () => {
         const availableStreams = await fetchStreamingServices(json)
         setStreams(availableStreams)
       } catch (e) {
-        //console.warn(e);
+        console.warn(e);
       } finally {
         // Tell the application to render
         setAppIsReady(true);
@@ -177,6 +178,7 @@ const SearchResult = () => {
   const streamItems = streams.map((item) => {
     // all Platforms for the "subscription" and "free" Option
     if(item.watchOptions.includes("subscription") || item.watchOptions.includes("free")) {
+      console.log(streams)
       return (
         <View key={streams.findIndex(e => e === item)} style = {styles.streamOption}>
           <Image source={{uri: 'https://www.movieofthenight.com/static/image/icon/service/netflix.png'}} style={styles.stream}/>
@@ -188,13 +190,13 @@ const SearchResult = () => {
   return (
     <View style={styles.root} onLayout={onLayoutRootView}>    
       <View style = {styles.poster}>
-        {appIsReady ? (
+        {appIsReady === true ? (
           <ImageBackground style = {styles.background} source={{uri: data.result[0].backdropURLs.original}}>
             <View style={styles.headerBox}>
               <BackButton/>
               <Text style = {styles.texttitle}>{title}</Text>
             </View>
-          </ImageBackground> 
+          </ImageBackground>
         ) : (
           <Text>Image Loading ...</Text>
         )}
@@ -209,8 +211,6 @@ const SearchResult = () => {
         <View>
           <Text style = {styles.textStream}>Streaming available on:</Text>
           <View style={styles.available}>
-            {streamItems}
-            {streamItems}
             {streamItems}
           </View>
           <Text style={{width: "100%", opacity: 0.6, textAlign: "center"}}>you might need an active subscription for the listed platforms to be able to access this movie</Text>
