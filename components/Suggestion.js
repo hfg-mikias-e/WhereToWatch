@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20
     }, 
     suggestionBox: {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#292929',
       height: 520,
       width: "100%",
-      borderRadius: 8,
+      borderRadius: 4,
       marginBottom: 20,
       overflow: "hidden"
     }

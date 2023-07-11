@@ -1,9 +1,8 @@
 
 import React, { useEffect, useState, useCallback} from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Suggestion from '../components/Suggestion';
-import Welcome from '../components/Welcome';
 import SearchButton from '../components/SearchButton';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -66,7 +65,10 @@ const HomeScreen = (probs) => {
   return (
     <View style={styles.root} onLayout={onLayoutRootView}>
       <ScrollView showsVerticalScrollIndicator={false} style={{width: "100%"}}>
-        <Welcome/>
+        <View style = {styles.WelcomeBox}>
+          <Text style = {styles.header}>Hi, Lars!</Text>
+          <Text style = {styles.text}>What do you want to watch today?</Text>
+        </View>
         <Suggestion title={GetTitle(0)} image = {GetImage(0)}/>
         <Suggestion title={GetTitle(1)} image = {GetImage(1)}/>
         <Suggestion title={GetTitle(2)} image = {GetImage(2)}/>

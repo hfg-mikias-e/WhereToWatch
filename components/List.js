@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 16,
-    backgroundColor: "white",
+    backgroundColor: '#292929',
     borderRadius: 12,
     marginHorizontal: 16,
     marginBottom: 12,
@@ -80,17 +80,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 5,
-    width: "80%"
+    fontSize: 16,
+    fontWeight: 500,
+    width: "80%",
+    color: "white"
   },
   year: {
-    fontSize: 16
+    fontSize: 16,
+    color: "white"
   },
   mediatype: {
     fontSize: 12,
-    fontWeight: "300"
+    fontWeight: "300",
+    color: "white"
   },
   info: {
     gap: 2,
