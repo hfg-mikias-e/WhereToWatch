@@ -1,5 +1,8 @@
 # WhereToWatch
 
+How to set up locally: install all packages with *npm install* and run the project with *npx expo* (Xcode, Android Studio or Expo Go has to be installed).
+The *env.example* environment variables contain keys (limited to 1000 calls per day) for The Movie Database API and Streaming Availability API.
+
 ## Situation
 
 Man möchte einen Film oder eine Serie schauen. Bei der großen Auswahl an Streaming
